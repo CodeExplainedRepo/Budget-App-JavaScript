@@ -62,7 +62,7 @@ addExpense.addEventListener("click", function(){
     let expense = {
         type : "expense",
         title : expenseTitle.value,
-        amount : parseInt(expenseAmount.value)
+        amount : parseFloat(expenseAmount.value)
     }
     ENTRY_LIST.push(expense);
 
@@ -78,7 +78,7 @@ addIncome.addEventListener("click", function(){
     let income = {
         type : "income",
         title : incomeTitle.value,
-        amount : parseInt(incomeAmount.value)
+        amount : parseFloat(incomeAmount.value)
     }
     ENTRY_LIST.push(income);
 
