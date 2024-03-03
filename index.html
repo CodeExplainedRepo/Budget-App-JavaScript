@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="budget-container">
-            <div class="app-title">Byte Balance</div>
+            <div class="app-title">Byte Bucks</div>
             <div class="budget-header">
                 <div class="balance">
                     <div class="title">Balance</div>
@@ -25,6 +25,30 @@
                         <div class="outcome-total"></div>
                     </div>
                 </div>
+            </div>
+            <div class="budget-dashboard">
+                <div class="dash-title">Dashboard</div>
+                <div class="toggle">
+                    <div class="tab1">Expenses</div>
+                    <div class="tab2 active">Income</div>
+                    <div class="tab3">All</div>
+                </div>
+                <div class="hide" id="expense"></div>
+                <div id="income">
+                    <ul>
+                        <li id='0' class="income">
+                            <div class="entry">Salary: R5000</div>
+                            <div id="edit"></div>
+                            <div id="delete"></div>
+                        </li>
+                    </ul>
+                    <div class="input">
+                        <input type="text" id="income-title-input" name="title" placeholder="Title">
+                        <input type="number" id="income-amount-input" name="amount" placeholder="R0">
+                        <div class="add-income"><img src="icon/plus.png" alt="A plus icon."></div>
+                    </div>
+                </div>
+                <div class="hide" id="all"></div>
             </div>
         </div>
     </body>
