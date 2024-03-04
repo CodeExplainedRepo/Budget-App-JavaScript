@@ -107,16 +107,33 @@ addIncome.addEventListener("click", function () {
 });
 
 // Helpers
-function updatUI() {
+function updateUI() {
     income = calculateTotal("income", ENTRY_LIST);
     outcome = calculateTotal("expense", ENTRY_LIST);
-    balance = calculateBalance(income, outcome);
+    balance = Math.abs(calculateBalance(income, outcome));
+
+    // Determine sign of balance
+    let sign = (income >= outcome) ? "R" : "-R";
 
     // Update UI
+    balanceEl.innerHTML = `R{sign}${balance}`;
+    outcomeTotalEl.innerHTML = `R${outcome}`;
+    incomeTotalEl.innerHTML = `R${income}`;
+
     clearElement([expenseList, incomeList, allList]);
 
-    // DETERMINE SIGN OF BALANCE
-    let sign = (income >= outcome) ? "R" : "-R";
+    ENTRY_LIST.forEach((entry, index) => {
+        if (entry.type == "expense") {
+            showEntry(expenseList, entry.type, entry.title, entry.amount, index)
+        } else if (entry.type == "income") {
+            showEntry(incomeList, entry.type, entry.title, entry.amount, index)
+        }
+        showEntry(allList, entry.type, entry.title, entry.amount, index)
+    });
+
+    updateChart(income, outcome);
+
+    localStorage.setItem("entry_list", JSON.stringify(ENTRY_LIST));
 }
 
 // Calculating the balance, income, and outcome
