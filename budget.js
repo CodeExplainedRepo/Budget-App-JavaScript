@@ -129,6 +129,15 @@ function calculateBalance(income, outcome) {
     return income - outcome;
 }
 
+// SHOWING ENTRIES
+function showEntry(list, type, title, amount, id) {
+    const entry = `<li id="${id}" class="${type}">
+                        <div class="entry"></div>
+                        <div></div>
+                        <div></div>
+                    </li>`
+}
+
 // VARIABLES
 let ENTRY_LIST = [];
 let balance = 0, income = 0, outcome = 0;

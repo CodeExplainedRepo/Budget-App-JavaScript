@@ -8,21 +8,27 @@
     </head>
     <body>
         <div class="budget-container">
-            <div class="app-title">Byte Bucks</div>
+            <div class="app-title"><b>Byte Bucks</b></div>
             <div class="budget-header">
                 <div class="balance">
                     <div class="title">Balance</div>
-                    <div class="value"></div>
+                    <div class="value">
+                        R0
+                    </div>
                 </div>
                 <div class="account">
                     <div class="income">
                         <div class="title">Income</div>
-                        <div class="income-total"></div>
+                        <div class="income-total">
+                            R0
+                        </div>
                     </div>
                     <div class="chart"></div>
                     <div class="outcome">
                         <div class="title">Outcome</div>
-                        <div class="outcome-total"></div>
+                        <div class="outcome-total">
+                            R0
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,26 +36,27 @@
                 <div class="dash-title">Dashboard</div>
                 <div class="toggle">
                     <div class="tab1">Expenses</div>
-                    <div class="tab2 active">Income</div>
-                    <div class="tab3">All</div>
+                    <div class="tab2">Income</div>
+                    <div class="tab3 active">All</div>
                 </div>
-                <div class="hide" id="expense"></div>
-                <div id="income">
-                    <ul class="list">
-                        <li id='0' class="income">
-                            <div class="entry">Salary: R5000</div>
-                            <div id="edit"></div>
-                            <div id="delete"></div>
-                        </li>
-                    </ul>
+                <div class="hide" id="expense">
+                    <ul class="list"></ul>
+                    <div class="input">
+                        <input type="text" id="expense-title-input" name="title" placeholder="Title">
+                        <input type="number" id="expense-amount-input" name="amount" placeholder="R0">
+                        <div class="add-expense"><img src="icon/plus.png" alt="A plus icon."></div>
+                    </div>
+                </div>
+                <div class="hide" id="income">
+                    <ul class="list"></ul>
                     <div class="input">
                         <input type="text" id="income-title-input" name="title" placeholder="Title">
                         <input type="number" id="income-amount-input" name="amount" placeholder="R0">
                         <div class="add-income"><img src="icon/plus.png" alt="A plus icon."></div>
                     </div>
                 </div>
-                <div class="hide" id="all"></div>
             </div>
+                <div id="all"></div>
         </div>
 
     <script src="chart.js"></script>
