@@ -110,6 +110,25 @@ addIncome.addEventListener("click", function () {
     clearInput([incomeTitle, incomeAmount]);
 });
 
+// Calculating the balance, income, and outcome
+function calculateTotal(type, ENTRY_LIST) {
+    let sum = 0;
+    ENTRY_LIST.forEach(entry => {
+        if (entry.type == type) {
+            sum += entry.amount;
+        }
+    });
+    return sum;
+}
+
+income = calculateTotal("income", ENTRY_LIST);
+outcome = calculateTotal("expense", ENTRY_LIST);
+balance = calculateBalance(income, outcome);
+
+function calculateBalance(income, outcome) {
+    return income - outcome;
+}
+
 // VARIABLES
 let ENTRY_LIST = [];
 let balance = 0, income = 0, outcome = 0;
