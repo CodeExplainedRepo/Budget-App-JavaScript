@@ -42,19 +42,25 @@ function show(element) {
 }
 
 for (let i = 0; i < elementsArray.length; i++) {
-    elementsArray[i].classList.add("hide")
+    elementsArray[i].classList.add("hide");
 }
 
 function hide(elementsArray) {
     elementsArray.forEach(element => {
         element.classList.add("hide");
-    })
+    });
 }
 
 function inactive(elementsArray) {
     elementsArray.forEach(element => {
         element.classList.remove("active");
-    })
+    });
+}
+
+function clearInput(inputsArray) {
+    inputsArray.forEach(input => {
+        input.value = " ";
+    });
 }
 
 // Event Listeners
@@ -77,9 +83,35 @@ allBtn.addEventListener("click", function () {
     hide([incomeEl, expenseEl]);
 })
 
+// ADDING ENTRIES
+addExpense.addEventListener("click", function () {
+    if (!expenseTitle.value || !expenseAmount.value) return;
+    // Save entry to entry list
+    let expense = {
+        type: "expense",
+        title: expenseTitle.value,
+        amount: parseFloat(expenseAmount.value)
+    }
+    ENTRY_LIST.push(expense);
+    updateUI();
+    clearInput([expenseTitle, expenseAmount]);
+});
+
+addIncome.addEventListener("click", function () {
+    if (!incomeTitle.value || !incomeAmount.value) return;
+    // Save entry to entry list
+    let income = {
+        type: "income",
+        title: incomeTitle.value,
+        amount: parseFloat(incomeAmount.value)
+    }
+    ENTRY_LIST.push(income);
+    updateUI();
+    clearInput([incomeTitle, incomeAmount]);
+});
 
 // VARIABLES
-let ENTRY_LIST;
+let ENTRY_LIST = [];
 let balance = 0, income = 0, outcome = 0;
 const DELETE = "delete", EDIT = "edit";
 
